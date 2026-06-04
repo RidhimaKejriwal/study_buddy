@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { SocketService } from '../../../core/services/socket.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-chat-room',
@@ -17,12 +18,18 @@ import { SocketService } from '../../../core/services/socket.service';
 })
 export class ChatRoomComponent implements OnInit {
   message = '';
-
   messages: any[] = [];
+  currentUser: any;
 
-  constructor(private socketService: SocketService) {}
+  constructor(
+    private socketService: SocketService,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
+    this.authService.getProfile().subscribe((user) => {
+      this.currentUser = user;
+    });
     this.socketService.receiveMessage((data: any) => {
       this.messages.push(data);
     });
@@ -32,7 +39,7 @@ export class ChatRoomComponent implements OnInit {
     if (!this.message.trim()) return;
 
     const data = {
-      user: 'Ridhima',
+      user: this.currentUser.name,
       message: this.message,
     };
 
