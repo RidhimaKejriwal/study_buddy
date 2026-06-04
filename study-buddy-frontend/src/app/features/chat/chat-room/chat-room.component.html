@@ -1,0 +1,12 @@
+<div>
+  <h2>StudyBuddy Chat</h2>
+
+  <div *ngFor="let msg of messages">
+    <strong>{{ msg.user }}:</strong>
+    {{ msg.message }}
+  </div>
+
+  <input type="text" [(ngModel)]="message" placeholder="Enter message" />
+
+  <button (click)="sendMessage()">Send</button>
+</div>
