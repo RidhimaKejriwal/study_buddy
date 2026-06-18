@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./styles/variables";
+@import "./styles/theme";
+@import "./styles/animations";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--background);
+  color: var(--text-primary);
+
+  font-family: Inter, system-ui, sans-serif;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}

@@ -1,0 +1,87 @@
+<div class="auth-layout">
+  <!-- Background Blobs -->
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Theme Toggle -->
+
+  <div class="theme-toggle-container">
+    <app-theme-toggle />
+  </div>
+
+  <div class="auth-container">
+    <!-- Hero Content -->
+
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="logo-container">
+          <div class="logo-circle">
+            <lucide-icon [img]="BookOpen"></lucide-icon>
+          </div>
+
+          <span class="brand-name"> StudyBuddy </span>
+        </div>
+
+        <h2>
+          Study Together.
+          <br />
+          Learn Faster.
+        </h2>
+
+        <p>
+          Collaborate in real-time, share knowledge, manage tasks and stay
+          focused with your study team.
+        </p>
+      </div>
+    </section>
+
+    <!-- Form -->
+
+    <section class="form-section">
+      <div class="form-card">
+        <ng-content></ng-content>
+      </div>
+    </section>
+
+    <!-- Features -->
+
+    <section class="features-section">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <lucide-icon [img]="Users" class="feature-icon"> </lucide-icon>
+
+          <h4>Collaboration</h4>
+
+          <span> Work together in shared study rooms. </span>
+        </div>
+
+        <div class="feature-card">
+          <lucide-icon [img]="MessageCircle" class="feature-icon">
+          </lucide-icon>
+
+          <h4>Live Chat</h4>
+
+          <span> Real-time communication with teammates. </span>
+        </div>
+
+        <div class="feature-card">
+          <lucide-icon [img]="Target" class="feature-icon"> </lucide-icon>
+
+          <h4>Focus Sessions</h4>
+
+          <span> Stay productive using shared timers. </span>
+        </div>
+
+        <div class="feature-card">
+          <lucide-icon [img]="CheckSquare" class="feature-icon"> </lucide-icon>
+
+          <h4>Task Boards</h4>
+
+          <span> Organize assignments and goals. </span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

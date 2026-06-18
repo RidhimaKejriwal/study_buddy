@@ -1,7 +1,67 @@
-<form [formGroup]="form" (ngSubmit)="login()">
-  <input placeholder="Email" formControlName="email" />
+<app-auth-layout>
+  <div class="auth-form">
+    <div class="auth-header">
+      <div class="header-icon-container">
+        <lucide-icon [img]="LogIn"></lucide-icon>
+      </div>
 
-  <input type="password" placeholder="Password" formControlName="password" />
+      <div>
+        <h2>Welcome Back</h2>
+        <p>Continue your learning journey.</p>
+      </div>
+    </div>
 
-  <button type="submit">Login</button>
-</form>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="field">
+        <div class="input-wrapper">
+          <lucide-icon [img]="Mail" class="input-icon"> </lucide-icon>
+
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email Address"
+          />
+        </div>
+
+        @if (
+          loginForm.controls.email.touched && loginForm.controls.email.invalid
+        ) {
+          <small> Please enter a valid email address </small>
+        }
+      </div>
+
+      <div class="field">
+        <div class="input-wrapper">
+          <lucide-icon [img]="Lock" class="input-icon"> </lucide-icon>
+
+          <input
+            [type]="showPassword() ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="Password"
+          />
+
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="togglePassword()"
+          >
+            <lucide-icon [img]="showPassword() ? EyeOff : Eye"> </lucide-icon>
+          </button>
+        </div>
+        @if (
+          loginForm.controls.password.touched &&
+          loginForm.controls.password.invalid
+        ) {
+          <small> Please enter a valid password </small>
+        }
+      </div>
+
+      <button class="submit-btn" [disabled]="loginForm.invalid">Sign In</button>
+    </form>
+
+    <div class="footer-link">
+      Don't have an account?
+      <a class="cursor-pointer" routerLink="/register"> Create Account </a>
+    </div>
+  </div>
+</app-auth-layout>

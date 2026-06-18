@@ -1,0 +1,8 @@
+<button
+  (click)="toggleTheme()"
+  class="h-10 w-10 rounded-full backdrop-blur-lg border border-white/10 flex items-center justify-center hover:scale-110 transition"
+>
+  <lucide-icon
+    [img]="themeService.getCurrentTheme() === 'dark' ? Sun : Moon"
+  ></lucide-icon>
+</button>
